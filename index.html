@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Munny - 물어보는 AI 가계부. 기록만 하지 마세요. 물어보세요.">
+  <meta property="og:title" content="Munny - 물어보는 AI 가계부">
+  <meta property="og:description" content="기록만 하지 마세요. 물어보세요. AI가 당신의 돈에 대해 직접 답합니다.">
+  <meta property="og:type" content="website">
+  <title>Munny - 물어보는 AI 가계부</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --color-bg: #ffffff;
+      --color-primary: #4F46E5;
+      --color-primary-soft: #EEF2FF;
+      --color-text: #111827;
+      --color-text-secondary: #6B7280;
+      --color-border: #E5E7EB;
+      --color-bg-soft: #F9FAFB;
+    }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      color: var(--color-text);
+      line-height: 1.65;
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 96px 0 72px;
+      text-align: center;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--color-primary-soft);
+      color: var(--color-primary);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 0.2px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+
+    .hero .tagline {
+      font-size: 20px;
+      color: var(--color-text-secondary);
+      font-weight: 600;
+      margin-bottom: 32px;
+      letter-spacing: -0.3px;
+    }
+
+    .hero .description {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* Section */
+    section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    h2 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 28px;
+      letter-spacing: -0.7px;
+    }
+
+    .section-text {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      line-height: 1.85;
+    }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .feature {
+      padding: 28px 24px;
+      background: var(--color-bg-soft);
+      border-radius: 14px;
+      border: 1px solid var(--color-border);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-primary);
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .feature h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .feature p {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Status Card */
+    .status-card {
+      background: var(--color-bg-soft);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .status-card .status-label {
+      font-size: 12px;
+      color: var(--color-primary);
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+
+    .status-card .status-text {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .status-card .status-detail {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+    }
+
+    /* Info Table */
+    .info-table {
+      border-top: 1px solid var(--color-border);
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 15px;
+    }
+
+    .info-label {
+      color: var(--color-text-secondary);
+      font-weight: 500;
+    }
+
+    .info-value {
+      color: var(--color-text);
+      font-weight: 500;
+    }
+
+    /* Contact */
+    .contact-text {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      line-height: 1.75;
+    }
+
+    .contact-text a {
+      color: var(--color-primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact-text a:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer {
+      padding: 40px 0 60px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      background: var(--color-bg-soft);
+      line-height: 1.7;
+    }
+
+    footer p { margin-bottom: 4px; }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .hero { padding: 64px 0 48px; }
+      .hero h1 { font-size: 38px; }
+      .hero .tagline { font-size: 17px; }
+      .hero .description { font-size: 15px; }
+      section { padding: 48px 0; }
+      h2 { font-size: 22px; }
+      .features { grid-template-columns: 1fr; }
+      .info-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 14px 0;
+      }
+      .info-label { font-size: 13px; }
+      .status-card .status-text { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <span class="badge">출시 준비 중 · 2026</span>
+      <h1>Munny</h1>
+      <p class="tagline">물어보는 AI 가계부</p>
+      <p class="description">
+        기록만 하지 마세요. 물어보세요.<br>
+        AI가 당신의 돈에 대해 직접 답합니다.
+      </p>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section>
+    <div class="container">
+      <h2>서비스 소개</h2>
+      <p class="section-text">
+        Munny는 단순히 지출을 기록하는 가계부를 넘어, 사용자가 자신의 재정에 대해 자연스럽게 묻고 답할 수 있는 AI 기반 개인 자산 관리 서비스입니다. 이번 달 지출 패턴부터 다음 달 예산 계획까지, 사용자의 데이터를 기반으로 깊이 있는 인사이트를 제공합니다. 한국 사용자의 소비·자산·저축 흐름에 최적화된 분석을 통해, 가계부와 진정한 대화가 가능한 새로운 경험을 만들어갑니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section>
+    <div class="container">
+      <h2>주요 기능</h2>
+      <div class="features">
+        <div class="feature">
+          <span class="feature-icon">💬</span>
+          <h3>대화형 분석</h3>
+          <p>"이번 달 왜 더 썼어?" 같은 질문에 AI가 데이터로 직접 답합니다.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">📊</span>
+          <h3>2단계 인사이트</h3>
+          <p>가벼운 즉답부터 심층 분석까지, 깊이를 사용자가 선택합니다.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">🏠</span>
+          <h3>자산 통합 관리</h3>
+          <p>지출·자산·저축·부채를 한곳에서 흐름으로 봅니다.</p>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">🔒</span>
+          <h3>안전한 데이터</h3>
+          <p>사용자 데이터는 서비스 제공 목적으로만 사용되며 안전하게 보호됩니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Status -->
+  <section>
+    <div class="container">
+      <h2>출시 일정</h2>
+      <div class="status-card">
+        <div class="status-label">CURRENT STATUS</div>
+        <div class="status-text">베타 출시 준비 중</div>
+        <div class="status-detail">2026년 정식 출시 예정 · iOS / Android 동시 지원</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Info -->
+  <section>
+    <div class="container">
+      <h2>사업자 정보</h2>
+      <div class="info-table">
+        <div class="info-row">
+          <span class="info-label">상호</span>
+          <span class="info-value">주식회사 유희파트너스</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">대표자</span>
+          <span class="info-value">구채희</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">사업자등록번호</span>
+          <span class="info-value">669-87-03092</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">사업장 주소</span>
+          <span class="info-value">서울특별시 마포구 독막로28길 10, 109동 B101호</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">이메일</span>
+          <span class="info-value">ask.munny@gmail.com</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section>
+    <div class="container">
+      <h2>문의</h2>
+      <p class="contact-text">
+        제휴, 투자, 미디어 문의는 <a href="mailto:ask.munny@gmail.com">ask.munny@gmail.com</a>으로 연락 부탁드립니다.<br>
+        고객 문의는 출시 후 앱 내 고객센터를 통해 응대됩니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 주식회사 유희파트너스. All rights reserved.</p>
+      <p>Munny는 주식회사 유희파트너스가 운영하는 AI 기반 개인 자산 관리 서비스입니다.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
