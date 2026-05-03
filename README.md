@@ -28,12 +28,13 @@ landing_page/
 - **사업자등록번호:** 669-87-03092
 - **통신판매업 신고번호:** 2023-서울마포-3374
 - **주소:** 서울특별시 마포구 독막로28길 10, 109동 B101호
-- **문의:** ask.munny@gmail.com (`config.js` 의 `CONTACT_EMAIL` 한 곳에서 관리)
+- **문의:** ask.moneylog@gmail.com (`config.js` 의 `CONTACT_EMAIL` 한 곳에서 관리)
 - **기존 공식홈:** https://ch9.co.kr/
 
 ## TODO
 
-- [ ] 네이버 스마트스토어 링크 입력 (`index.html` legacy-section + `config.js` SMARTSTORE_URL)
+- [x] ~~네이버 스마트스토어 링크 입력~~ ✅ 2026-05-03 반영 (smartstore.naver.com/prettywife)
+- [x] ~~문의 이메일 변경~~ ✅ 2026-05-03 ask.moneylog@gmail.com 일괄 반영
 - [ ] 향후 도메인 이메일 도입 시 `config.js` 의 `CONTACT_EMAIL` 1 곳 수정 → 모든 페이지 자동 반영
 - [ ] 법률 검토 후 privacy·terms 의 `draft-notice` 박스 제거 + 정식 시행일 갱신
 
@@ -56,7 +57,7 @@ vercel --prod
 - [ ] /privacy 개인정보처리방침 정상 접속
 - [ ] /terms 이용약관 정상 접속
 - [ ] 모든 페이지 푸터에 사업자 정보 표시
-- [ ] ask.munny@gmail.com 표시
+- [ ] ask.moneylog@gmail.com 표시
 - [ ] ch9.co.kr 링크 정상 연결
 - [ ] 주소 = 서울특별시 마포구 독막로28길 10, 109동 B101호 통일
 - [ ] 사업자등록번호 669-87-03092
