@@ -1,0 +1,541 @@
+/* Munny — Common Styles (index / privacy / terms) */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --color-bg: #ffffff;
+  --color-primary: #4F46E5;
+  --color-primary-soft: #EEF2FF;
+  --color-text: #111827;
+  --color-text-secondary: #6B7280;
+  --color-border: #E5E7EB;
+  --color-bg-soft: #F9FAFB;
+  --color-warm-amber: #F5A623;
+  --color-warm-amber-soft: #FEF3C7;
+}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  color: var(--color-text);
+  line-height: 1.65;
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Top nav (privacy/terms 페이지용) */
+.top-nav {
+  border-bottom: 1px solid var(--color-border);
+  padding: 16px 0;
+  background: var(--color-bg);
+}
+
+.top-nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-nav .nav-brand {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.top-nav .nav-back {
+  font-size: 14px;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.top-nav .nav-back:hover { text-decoration: underline; }
+
+/* Hero */
+.hero {
+  padding: 96px 0 72px;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  letter-spacing: 0.2px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+}
+
+.hero .tagline {
+  font-size: 20px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  margin-bottom: 32px;
+  letter-spacing: -0.3px;
+}
+
+.hero .description {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  max-width: 520px;
+  margin: 0 auto 36px;
+  line-height: 1.75;
+}
+
+/* Store buttons (Coming Soon) */
+.store-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  border-radius: 12px;
+  font-family: inherit;
+  cursor: not-allowed;
+  opacity: 0.55;
+  text-align: left;
+}
+
+.store-btn .store-icon {
+  font-size: 22px;
+}
+
+.store-btn .store-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.store-btn .store-text small {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.store-btn .store-text strong {
+  font-size: 15px;
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.store-notice {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+/* Section */
+section {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+section:last-of-type { border-bottom: none; }
+
+h2 {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 28px;
+  letter-spacing: -0.7px;
+}
+
+.section-text {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+.section-text:last-child { margin-bottom: 0; }
+
+.section-text strong { color: var(--color-text); font-weight: 700; }
+
+/* Heritage section (강조) */
+.heritage-section {
+  background: var(--color-primary-soft);
+}
+
+.heritage-section h2 {
+  color: var(--color-primary);
+}
+
+/* Legacy buttons (구채희 공식홈 / 스마트스토어) */
+.legacy-section {
+  background: var(--color-bg-soft);
+}
+
+.legacy-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.legacy-btn {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 20px;
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: 12px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+
+.legacy-btn:hover:not(.disabled) {
+  border-color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.legacy-btn.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.legacy-btn-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.legacy-btn-url {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+/* Features */
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.feature {
+  padding: 28px 24px;
+  background: var(--color-bg-soft);
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.feature:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+}
+
+.feature-icon {
+  font-size: 28px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.feature h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+
+.feature p {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Status Card */
+.status-card {
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.status-card .status-label {
+  font-size: 12px;
+  color: var(--color-primary);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+
+.status-card .status-text {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+}
+
+.status-card .status-detail {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.release-notice {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: var(--color-warm-amber-soft);
+  border-left: 3px solid var(--color-warm-amber);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.release-notice strong { color: var(--color-text); }
+
+/* Info Table */
+.info-table {
+  border-top: 1px solid var(--color-border);
+}
+
+.info-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 15px;
+}
+
+.info-label {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.info-value {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.info-value a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.info-value a:hover { text-decoration: underline; }
+
+/* Contact */
+.contact-text {
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+.contact-text a, .contact-email {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-text a:hover, .contact-email:hover { text-decoration: underline; }
+
+/* Footer */
+footer {
+  padding: 48px 0 60px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-soft);
+  line-height: 1.7;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-brand {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.footer-brand strong {
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.footer-brand span {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.footer-info {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.footer-info p {
+  margin-bottom: 6px;
+}
+
+.footer-info strong {
+  display: inline-block;
+  width: 130px;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.footer-info a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.footer-info a:hover { text-decoration: underline; }
+
+.footer-links {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-links a {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin: 0 4px;
+}
+
+.footer-links a:hover { text-decoration: underline; }
+
+.footer-links .divider {
+  color: var(--color-text-secondary);
+  margin: 0 4px;
+}
+
+.footer-copy {
+  text-align: center;
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+/* Privacy / Terms — 본문 스타일 */
+.legal-content {
+  padding: 48px 0 64px;
+}
+
+.legal-content h1 {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.legal-content .effective {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.legal-content .draft-notice {
+  background: var(--color-warm-amber-soft);
+  border-left: 3px solid var(--color-warm-amber);
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 13px;
+  color: #92400E;
+  margin-bottom: 32px;
+}
+
+.legal-content h2 {
+  font-size: 19px;
+  font-weight: 800;
+  margin-top: 36px;
+  margin-bottom: 14px;
+  color: var(--color-text);
+  letter-spacing: -0.4px;
+}
+
+.legal-content p {
+  font-size: 15px;
+  color: var(--color-text);
+  line-height: 1.85;
+  margin-bottom: 12px;
+}
+
+.legal-content ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+.legal-content li {
+  font-size: 15px;
+  color: var(--color-text);
+  line-height: 1.85;
+  margin-bottom: 6px;
+}
+
+.legal-content .legal-info-table {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.legal-content .legal-info-table p {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.legal-content .legal-info-table strong {
+  display: inline-block;
+  width: 130px;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .hero { padding: 64px 0 48px; }
+  .hero h1 { font-size: 38px; }
+  .hero .tagline { font-size: 17px; }
+  .hero .description { font-size: 15px; }
+  section { padding: 48px 0; }
+  h2 { font-size: 22px; }
+  .features { grid-template-columns: 1fr; }
+  .legacy-buttons { grid-template-columns: 1fr; }
+  .info-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 14px 0;
+  }
+  .info-label { font-size: 13px; }
+  .status-card .status-text { font-size: 19px; }
+  .footer-info strong { width: 110px; font-size: 12px; }
+  .legal-content h1 { font-size: 26px; }
+  .legal-content h2 { font-size: 17px; }
+}
